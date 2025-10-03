@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: poppins;
+      }
+      
+      .navbar-div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+      
+      .navbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      
+      .navbar a {
+        text-decoration: none;
+        color: black;
+        padding: 5px 10px;
+      }
+      
+      .navbar-company {
+        display: flex;
+        flex-direction: column;
+        line-height: 0.1;
+      }
+      
+      .navbar-company h3 {
+        margin: 0;
+      }
+
+      .quote {
+        padding: 10px 15px;
+        border-radius: 20px;
+        border: none;
+        background-color: #e63946;
+        color: white;
+        font-weight: 600;
+        box-shadow: 0 0 10px #ff4a57, 0 0 10px #ff4a57, 0 0 10px #ff4a57;
+        border-color: #ff4a57;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+      
+      .hero {
+        min-height: 500px;
+        background: linear-gradient(
+          90deg,
+          rgba(240, 150, 158, 0.95),
+          rgba(253, 215, 220, 0.9)
+        );
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 20px;
+      }
+      
+      .hero span {
+        color: #e63946;
+        text-decoration: underline;
+      }
+      
+      .hero-text button {
+        border-radius: 20px;
+        padding: 9px 15px;
+        box-shadow: 0 0 10px #ff4a57, 0 0 10px #ff4a57, 0 0 10px #ff4a57;
+        margin: 5px;
+        cursor: pointer;
+      }
+
+      .resume-package-button {
+        color: #e63946;
+        font-weight: 600;
+        border-width: 2px;
+        border-style: solid;
+        border-color: #e63946;
+        background: transparent;
+      }
+      
+      .contact-us {
+        background-color: #e63946;
+        color: white;
+        border-style: solid;
+        border-color: #e63946;
+      }
+
+      .hero-text {
+        flex: 1;
+        min-width: 300px;
+        max-width: 800px;
+        margin: 20px;
+      }
+
+      .hero-text h1 {
+        font-size: clamp(28px, 5vw, 50px);
+        line-height: 1.2;
+      }
+      
+      .hero-text p {
+        font-size: clamp(14px, 2vw, 16px);
+      }
+
+      .hero-right {
+        position: relative;
+        min-height: 500px;
+        flex: 1;
+        min-width: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .circle {
+        position: absolute;
+        height: clamp(200px, 30vw, 300px);
+        width: clamp(200px, 30vw, 300px);
+        bottom: 20px;
+        border: clamp(30px, 5vw, 50px) solid #fcc3c8;
+        border-radius: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
+      .image {
+        position: absolute;
+        top: 0;
+        right: 10%;
+        max-width: 80%;
+        height: auto;
+      }
+      
+      .image img {
+        max-width: 100%;
+        height: auto;
+      }
+      
+      .hero-card {
+        position: absolute;
+        width: 100%;
+        height: 200px;
+        bottom: 0;
+        right: 0;
+      }
+      
+      .rating {
+        position: absolute;
+        top: 0;
+        left: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: clamp(200px, 25vw, 250px);
+        height: 60px;
+        border-radius: 10px;
+        background-color: white;
+        line-height: 0.9;
+        padding: 15px;
+      }
+      
+      .rating h1 {
+        font-size: clamp(30px, 5vw, 40px);
+        color: rgb(61, 201, 166);
+      }
+      
+      .rating p {
+        margin-top: 40px;
+        padding: 0;
+        font-size: clamp(12px, 2vw, 16px);
+      }
+
+      .rating h3 {
+        margin-top: 0px;
+        line-height: 0;
+        margin-bottom: 40px;
+        margin-left: 10px;
+        font-size: clamp(12px, 2vw, 16px);
+      }
+      
+      .resume-created {
+        position: absolute;
+        bottom: 20px;
+        right: 10px;
+        width: clamp(180px, 25vw, 230px);
+        min-height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        background-color: white;
+        border-radius: 10px;
+        line-height: 0.9;
+      }
+
+      .resume-created img {
+        height: clamp(50px, 10vw, 80px);
+      }
+      
+      .resume-created-contents p {
+        margin-top: 10px;
+        font-size: clamp(14px, 2vw, 20px);
+      }
+      
+      .resume-created-contents h2 {
+        line-height: 0;
+        font-size: clamp(18px, 3vw, 24px);
+      }
+
+      .cards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+      }
+      
+      .card-info {
+        background-color: #fcdcdf;
+        padding: 10px 20px;
+        border-radius: 7px;
+        margin-top: 40px;
+        font-weight: 600;
+      }
+
+      .cards p {
+        font-size: clamp(16px, 2.5vw, 20px);
+        text-align: center;
+        padding: 0 20px;
+      }
+
+      .cards-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        width: 100%;
+        max-width: 1200px;
+      }
+
+      .item {
+        width: 100%;
+        min-height: 400px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .item img {
+        max-width: 100%;
+        height: auto;
+        width: 250px;
+      }
+      
+      .item h2 {
+        font-size: clamp(14px, 2vw, 18px);
+        text-align: center;
+      }
+      
+      .item p {
+        font-size: clamp(13px, 1.5vw, 15px);
+        text-align: center;
+      }
+      
+      .navbar-div img {
+        height: 40px;
+      }
+      
+      .navbar-comp-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 7px;
+      }
+
+      /* Mobile specific styles */
+      @media (max-width: 768px) {
+        .navbar-div {
+          flex-direction: column;
+          text-align: center;
+        }
+        
+        .navbar {
+          justify-content: center;
+          order: 2;
+        }
+        
+        .quote {
+          order: 3;
+          margin-top: 10px;
+        }
+        
+        .navbar-comp-info {
+          order: 1;
+        }
+        
+        .hero {
+          flex-direction: column;
+        }
+        
+        .hero-text {
+          order: 1;
+          text-align: center;
+          margin: 20px 10px;
+        }
+        
+        .hero-right {
+          order: 2;
+          width: 100%;
+          min-height: 400px;
+        }
+        
+        .circle {
+          height: 200px;
+          width: 200px;
+          border-width: 30px;
+        }
+        
+        .rating {
+          left: 5px;
+          width: 180px;
+          padding: 10px;
+        }
+        
+        .resume-created {
+          right: 5px;
+          width: 180px;
+        }
+        
+        .cards-container {
+          grid-template-columns: 1fr;
+          padding: 10px;
+        }
+      }
+
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .cards-container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .hero-text {
+          max-width: 500px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar-div">
+      <div class="navbar-comp-info">
+        <img src="comapany-logo.png" alt="" />
+        <div class="navbar-company">
+          <h3>Comapany</h3>
+          <p>business tagline</p>
+        </div>
+      </div>
+
+      <nav class="navbar">
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Our Services</a>
+        <a href="#">Pricing</a>
+        <a href="#">FAQ</a>
+      </nav>
+      <button class="quote">Get A Quote</button>
+    </div>
+    <div class="hero">
+      <div class="hero-text">
+        <h1>Your Resume <span>Deserves A Yes</span> Let's Make It Happen</h1>
+        <p>
+          If your Resume isn't Getting Responses.It's Time For An Upgrade.Get An
+          ATS-Optimized Resume Crafted By HR Experts To Help You Land More
+          Interviews.Our Resumes Are Designed To Get Your Foot In The Door And
+          Place Your Name At The Top Of The Shortlist.
+        </p>
+        <button class="resume-package-button">RESUME PACKAGES</button>
+        <button class="contact-us">CONTACT US</button>
+      </div>
+      <div class="hero-right">
+        <div class="circle"></div>
+        <div class="image">
+          <img src="hero_image.png" alt="" />
+        </div>
+        <div class="hero-card">
+          <div class="rating">
+            <h1>4.9</h1>
+            <div>
+              <p>⭐⭐⭐⭐⭐</p>
+              <h3>Instructor Rating</h3>
+            </div>
+          </div>
+          <div class="resume-created">
+            <img src="university-hat.png" alt="" />
+            <div class="resume-created-contents">
+              <h2><b>260+</b></h2>
+              <p>
+                Online resume<br />
+                Created
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cards">
+      <div class="card-info">What You Get</div>
+      <p>
+        <b
+          >You're Not Just Another Applicant And Your Resume Shouldn't Look Like
+          One</b
+        >
+      </p>
+      <div class="cards-container">
+        <div class="item">
+          <img src="card1.png" alt="" />
+          <h2>A Resume That Passes ATS Filters</h2>
+          <p>
+            Get a professionally written, keyword-optimized resume that lands in
+            recuiter inboxes -not rejection piles
+          </p>
+        </div>
+        <div class="item">
+          <img src="card2.png" alt="" />
+          <h2>A Cover Letter That Gets Read</h2>
+          <p>
+            Stand out with a cover letter that speaks directly to the role and
+            reflects your strengths.
+          </p>
+        </div>
+        <div class="item">
+          <img src="card3.png" alt="" />
+          <h2>A Linkedin Profile That Works For You</h2>
+          <p>
+            Attract the right eyes,start conversations , and show up in recuiter
+            searches.
+          </p>
+        </div>
+        <div class="item">
+          <img src="card4.png" alt="" />
+          <h2>Interview Confidence</h2>
+          <p>
+            Interview preparation with real HR professionals so you speak
+            clearly ,confidently,and convincingly.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
